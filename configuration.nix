@@ -135,8 +135,6 @@
     zulu
 
     #Image stuff
-    gwenview
-    pix
     krita
 
     #Hardware/Libs
