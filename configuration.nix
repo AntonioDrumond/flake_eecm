@@ -14,8 +14,53 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos_eecm";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostname = "nixos_eecm";
+    networkmanager.enable = true;
+    nameservers = [ "127.0.0.1" ];
+  };
+
+  services.blocky = {
+    enable = true;
+    settings = {
+      ports.dns = 53;
+      upstreams.groups.default = [ "84.238.0.130" "84.238.6.254" "192.168.1.1" ];
+      bootstrapDns = {
+        upstream = "https://one.one.one.one/dns-query";
+        ips = [ "1.1.1.1" "1.0.0.1" ];
+      };
+    };
+    #Enable Blocking of certian domains.
+    blocking = {
+      blackLists = {
+        #Adblocking
+        ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" ];
+        #Another filter for blocking adult sites
+        adult = [ "https://blocklistproject.github.io/Lists/porn.txt" ];
+        #You can add additional categories
+        # Lista de sites bloquados
+        slack = [ ''|
+					www.facebook.com
+				''];
+      };
+      clientGroupsBlock = {
+        seemg = [
+          "ads"
+          "adult"
+        ];
+        aluno_2001 = [
+          "ads"
+          "adult"
+          "slack"
+        ];
+        aluno_eecm = [
+          "ads"
+          "adult"
+          "slack"
+        ];
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
@@ -99,6 +144,18 @@
       ];
     };
 
+    gamer = {
+      isNormalUser = true;
+      description = "aluno_2001";
+      extraGroups = [
+        "adm"
+        "networkmanager"
+      ];
+      packages = [
+        pkgs.minecraft
+      ];
+    };
+
     aluno_eecm = {
       isNormalUser = true;
       description = "aluno_eecm";
@@ -143,6 +200,7 @@
 
     #Other
     kdePackages.kcalc
+    blocky
   ];
 
   environment.localBinInPath = true;
