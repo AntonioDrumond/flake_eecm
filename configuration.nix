@@ -187,6 +187,7 @@
     eza
 
     #Development
+		wezterm
     gcc
     zulu
 
