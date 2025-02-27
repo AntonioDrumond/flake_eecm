@@ -187,7 +187,6 @@
     eza
 
     #Development
-    vscode
     gcc
     zulu
 
