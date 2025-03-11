@@ -24,10 +24,17 @@
     enable = true;
     settings = {
       ports.dns = 53;
-      upstreams.groups.default = [ "84.238.0.130" "84.238.6.254" "192.168.1.1" ];
+      upstreams.groups.default = [
+        "84.238.0.130"
+        "84.238.6.254"
+        "192.168.1.1"
+      ];
       bootstrapDns = {
         upstream = "https://one.one.one.one/dns-query";
-        ips = [ "1.1.1.1" "1.0.0.1" ];
+        ips = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
       };
     };
     #Enable Blocking of certian domains.
@@ -39,9 +46,12 @@
         adult = [ "https://blocklistproject.github.io/Lists/porn.txt" ];
         #You can add additional categories
         # Lista de sites bloquados
-        slack = [ ''|
-					www.facebook.com
-				''];
+        slack = [
+          ''
+            |
+                      www.facebook.com
+          ''
+        ];
       };
       clientGroupsBlock = {
         seemg = [
@@ -187,9 +197,11 @@
     eza
 
     #Development
-		wezterm
+    wezterm
     gcc
     zulu
+    arduino-ide
+    vscode
 
     #Image stuff
     krita
