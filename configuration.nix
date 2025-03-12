@@ -16,7 +16,7 @@
 
   networking = {
     hostname = "nixos_eecm";
-    networkManager.enable = true;
+    networkmanager.enable = true;
     # nameservers = [ "127.0.0.1" ];
   };
 
@@ -156,6 +156,7 @@
       ];
     };
 
+/*
     gamer = {
       isNormalUser = true;
       description = "aluno_2001";
@@ -167,7 +168,7 @@
         pkgs.minecraft
       ];
     };
-
+*/
     aluno_eecm = {
       isNormalUser = true;
       description = "aluno_eecm";
