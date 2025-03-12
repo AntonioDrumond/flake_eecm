@@ -15,7 +15,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostname = "nixos_eecm";
+    hostName = "nixos_eecm";
     networkmanager.enable = true;
     # nameservers = [ "127.0.0.1" ];
   };
