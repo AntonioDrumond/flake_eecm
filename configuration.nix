@@ -16,7 +16,7 @@
 
   networking = {
     hostname = "nixos_eecm";
-    networkmanager.enable = true;
+    networkManager.enable = true;
     # nameservers = [ "127.0.0.1" ];
   };
 
